@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript">
+   
+		    var myDate = new Date();
+		    var firstDate = new Date(2020, 4, 12);
+		    var dayTime = 1000*60*60*24;
+		    var myDateS = myDate.getTime();
+		    var firstDates = firstDate.getTime();
+		    var days = Math.abs(Math.floor((myDateS - firstDates)/dayTime)) + 1;
+//		    console.log(firstDate);
+			var daysStr = "已交往"+days+"天，余生很长，多多指教喽"
+			
+		    var a_idx = 0;
+		    jQuery(document).ready(function($) {
+		        $("body").click(function(e) {
+		            var a = new Array(
+		            "今夜月色真美",
+		            "今まであなたは僕の光", 
+		            "我可以到你的珊瑚台地里吗", 
+		            "一起去看夏季大三角吗", 
+		            "荡れ", 
+		            "my honey", 
+		            "今夜月が綺麗たね", 
+		            "樱花，繁星，雨过天晴,我和我的猫", 
+		            "但盼风雨来 能留你在此",
+		            "抱住", 
+		            "彼采艾兮，一日不见，如三岁兮",
+		            "You are the apple of my eye",
+		            daysStr
+		            );
+		            var $i = $("<span />").text(a[a_idx]);
+		            a_idx = (a_idx + 1) % a.length;
+		            var x = e.pageX - 40,
+		                y = e.pageY;
+		            var color= ["#D0021B", "#417505", "#9013FE", "#002EFA", "#417505", "#9013FE", "#8b572a", "#002EFA", "#BD10E0", "#ff5a00", "#3FA536", "#B92281"];
+					var col=color[Math.round(Math.random()*color.length)];
+					if(a_idx != 8 && 11){
+						$i.css({
+			                "z-index": 520,
+			                "top": y - 20,
+			                "left": x,
+			                "position": "absolute",
+			                "font-weight": "bold",
+			                "font-size": "50px",
+	//		                "color": "#3395FF"
+							"color": col,
+			            });
+					}else{
+						$i.css({
+			                "z-index": 520,
+			                "top": y - 20,
+			                "left": x,
+			                "position": "absolute",
+			                "font-weight": "bold",
+			                "font-size": "50px",
+	//		                "color": "#3395FF"
+							"color": col
+			            });
+					}
+		            
+		            $("body").append($i);
+		            $i.animate({
+		                    "top": y - 180,
+		                    "opacity": 0
+		                },
+		                2000,
+		                function() {
+		                    $i.remove();
+		                });
+		        });
+		    });
+		</script>
+		<style>
+			body{
+			 	background:#fcd9d9; 
+			}
+			.contain{
+				width:450px;
+				height:1000px;
+				background:#fcd9d9;
+				margin: auto;
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+			}
+			.heart{
+				-webkit-animation:heartPump 2s infinite;
+				width:240px;
+				height: 240px;
+				position:absolute;
+				top:280px;
+				left:132px;	
+			}
+			.heart:before{
+				content: '';
+				width: 160px;
+				height: 240px;
+				background:#fe3232;
+				position: absolute;
+				border-radius:100px 100px 0 0;
+				-webkit-transform: rotate(-45deg);
+			}
+			.heart:after{
+				content: '';
+				width: 160px;
+				height: 240px;
+				background:#fe3232;
+				position: absolute;
+				border-radius:100px 100px 0 0;
+				left:57px;
+				-webkit-transform: rotate(45deg);
+			}
+			
+			@-webkit-keyframes heartPump{
+				0%{
+					-webkit-transform: scale(1);
+				}
+				50%{
+					-webkit-transform: scale(1.5);
+				}
+				100%{
+					-webkit-transform: scale(1);
+				}
+		</style>
+	</head>
+	<body>
+		<div class="contain">
+			<div class="heart"></div>
+			<h1 style='font-size:60px;margin-top:700px;margin-right:45px;float:right;text-align:center;color:palevioletred'>遇见麒麟❤
+		</div>
+	</body>
+</html>
